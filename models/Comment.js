@@ -29,7 +29,8 @@ Comment.init(
         },
         commentContent: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: false,
+            defaultValue: "Comment Text Placeholder."
         }
     },
     {

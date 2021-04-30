@@ -21,7 +21,8 @@ Post.init(
         },
         blogContent: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: false,
+            defaultValue: "Blog Text Placeholder."
         }
     },
     {
