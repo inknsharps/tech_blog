@@ -1,4 +1,6 @@
-<div>
-    <h2>This is a post.</h2>
-    {{> comment}}
-</div>
+{{#each posts as |post|}}
+    <div>
+        <h2>{{blogContent}}</h2>
+        <p>Written by: {{user.username}}</p>
+    </div>
+{{/each}}
