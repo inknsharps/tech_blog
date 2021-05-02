@@ -10,7 +10,12 @@ const commentData = [
     {
         userId: 2,
         postId: 1,
-        commentContent: "This post made me cringe."
+        commentContent: "This was an interesting post."
+    },
+    {
+        userId: 1,
+        postId: 1,
+        commentContent: "Thanks for reading!"
     }
 ]
 
