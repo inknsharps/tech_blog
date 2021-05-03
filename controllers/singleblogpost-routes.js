@@ -1,6 +1,9 @@
+// THIS IS ONLY FOR PULLING A SINGULAR BLOG POST!!!
+
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
 
+// This grabs the Post by ID, and includes the user who made it, and the comments related to that post, and their respective comment creators
 router.get("/:id", async (req, res) => {
     try {
         const rawPostData = await Post.findByPk(req.params.id, {
