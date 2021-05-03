@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection.js");
-const { beforeBulkCreate } = require("./Post.js");
+const { beforeBulkCreate, beforeUpdate } = require("./Post.js");
 
 class User extends Model {
     validatePassword(inputPassword){
@@ -19,6 +19,7 @@ User.init(
         },
         email: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false,
             validate: {
                 isEmail: true
@@ -26,6 +27,7 @@ User.init(
         },
         username: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false
         },
         password: {
@@ -41,6 +43,10 @@ User.init(
             async beforeCreate(newUserData){
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
+            },
+            async beforeUpdate(updatedUserData){
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
             }
         },
         sequelize,

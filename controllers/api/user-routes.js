@@ -1,6 +1,6 @@
 const { User } = require("../../models");
-
 const router = require("express").Router();
+const checkAuthorization = require("../../utils/authorization");
 
 router.get("/", async (req, res) => {
     try {
@@ -53,6 +53,24 @@ router.post("/login", async (req, res) => {
 
             res.status(200).json({ user: userData, message: 'You are now logged in!' });
         })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// At the moment the update hook is not working. Look into this later
+router.put("/:id", async (req, res) => {
+    try {
+        const updatedUserData = await User.update({
+            email: req.body.email,
+            password: req.body.password
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        })
+        res.status(200).json(updatedUserData);
     } catch (err) {
         res.status(500).json(err);
     }
