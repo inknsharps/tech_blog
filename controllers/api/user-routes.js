@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
 // Make sure to attach the user info the to req.body when you do this post.
 router.post("/login", async (req, res) => {
     try {
-        const userData = await User.findOne({ where: {email: req.body.email } });
+        const userData = await User.findOne({ where: { email: req.body.email } });
 
         if (!userData) {
             res.status(400).json("Incorrect email or password, please try again.");
@@ -58,6 +58,17 @@ router.post("/login", async (req, res) => {
     }
 });
 
+// When the user logs out, end the session
+router.post("/logout", (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
+
 // At the moment the update hook is not working. Look into this later
 router.put("/:id", async (req, res) => {
     try {
@@ -65,11 +76,11 @@ router.put("/:id", async (req, res) => {
             email: req.body.email,
             password: req.body.password
         },
-        {
-            where: {
-                id: req.params.id
-            }
-        })
+            {
+                where: {
+                    id: req.params.id
+                }
+            })
         res.status(200).json(updatedUserData);
     } catch (err) {
         res.status(500).json(err);

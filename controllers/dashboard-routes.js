@@ -1,4 +1,5 @@
 // DASHBOARD ROUTE
+// MAKE SURE TO ADD AUTHENTICATION HERE
 const router = require("express").Router();
 const { User, Post } = require("../models");
 
