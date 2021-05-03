@@ -16,7 +16,10 @@
     </header>
     <nav>
         <a href="/">Home</a>
+        {{#unless logged_in}}
         <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        {{/unless}}
         {{#if logged_in}}
         <a href="/dashboard/{{userId}}">Dashboard</a>
         {{> logout}}
