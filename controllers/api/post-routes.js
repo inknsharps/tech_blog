@@ -21,18 +21,27 @@ router.post("/", async (req, res) => {
 // Will need to feed in the specific post id through the req.params, and the updated blog text through req.body
 router.put("/:id", async (req, res) => {
     try {
-        const updatedPost = Post.update({
+        const updatedPost = await Post.update({
             blogContent: req.body.blogContent
         },
         {
             where: { id: req.params.id }
         });
-        res.status(200).json("Post Updated!");
+        res.status(200).json(updatedPost);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-
+router.delete("/:id", async (req, res) => {
+    try {
+        const deletedPost = await Post.destroy({
+            where: { id: req.params.id }
+        });
+        res.status(200).json(deletedPost);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;
