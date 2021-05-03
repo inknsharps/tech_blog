@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-// This makes a new user model
+// This makes a new instance of the user model
 // Make sure to attach the new user info to the req.body for this
 router.post("/", async (req, res) => {
     try {

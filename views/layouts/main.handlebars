@@ -17,8 +17,10 @@
     <nav>
         <a href="/">Home</a>
         <a href="/login">Login</a>
-        {{!-- Add if logged in logout button here --}}
-        {{!-- Add if logged in dashboard button here --}}
+        {{#if logged_in}}
+        <a href="/dashboard/{{userId}}">Dashboard</a>
+        {{> logout}}
+        {{/if}}
     </nav>
     <main>
         {{{body}}}
