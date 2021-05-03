@@ -1,4 +1,8 @@
 // THIS IS ONLY FOR PULLING A SINGULAR BLOG POST!!!
+/* Some to dos:
+1) Make it so that you're only able to comment when the user is logged in
+2) Make it so that you can only edit/delete the comments that you made.
+*/
 
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
