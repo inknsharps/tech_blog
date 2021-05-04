@@ -22,13 +22,13 @@ const createPost = async (event) => {
 
 // The big takeaways here:
 // 1) When you click on the buttons, it grabs the data-postid attribute (which we set up on our handlebars templates), and gives us the (blog)Post model id. 
-// 2) We then grab the new text content of the blog.
+// 2) We then grab the new text content of the blog, by selecting a class that we made using handlebars (which uses the (blog)Post model id).
 // 3) We then use the fetch API to send over the new text content in the request body, making a PUT request to our API endpoint to update a post.
 const updatePost = async (event) => {
     event.stopPropagation();
 
     const postId = event.target.getAttribute("data-postid");
-    const blogContent = document.querySelector(".blog-title").textContent;
+    const blogContent = document.querySelector(`.blog-title-${postId}`).textContent;
     const response = await fetch(`/api/posts/${postId}`, {
         method: "PUT",
         body: JSON.stringify({ blogContent }),

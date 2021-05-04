@@ -3,7 +3,7 @@
   <h1 class="h2 mb-3 fw-normal">Your Blog Posts:</h1>
   <div class="card" style="width: 50rem;">
   <div class="card-body" data-postid={{id}}>
-    <h5 class="card-title blog-title" contenteditable="true">{{blogContent}}</h5>
+    <h5 class="card-title blog-title-{{id}}" contenteditable="true">{{blogContent}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">Created by You on {{createdAt}}</h6>
     <p class="card-text">This a blog post was created by you.</p>
     <button type="button" class="card-link update-post" data-postid="{{id}}">Update</button>

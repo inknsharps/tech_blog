@@ -4,3 +4,4 @@ ref
 .env
 .public-old
 .views-old
+.html-templates
