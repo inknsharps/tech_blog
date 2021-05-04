@@ -29,8 +29,12 @@ router.get("/:id", async (req, res) => {
             ],
         });
         const postData = rawPostData.get({ plain: true });
-        console.log(postData)
-        res.status(200).json(postData);
+        console.log(postData);
+        res.status(200).render("blogpost", {
+            postData,
+            logged_in: req.session.logged_in, 
+            userId: req.session.user_id
+        });
     } catch (err) {
         res.status(400).json("Page not found!");
     }

@@ -10,7 +10,7 @@
 
 
     <!-- Bootstrap core CSS -->
-<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="sticky-footer-navbar.css" rel="stylesheet">
@@ -28,21 +28,17 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" href="home.html">Home</a>
           </li>
-          {{#unless logged_in}}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+            <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
           </li>
-          {{/unless}}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/signin">Sign in</a>
+            <a class="nav-link active" aria-current="page" href="signin.html">Sign in</a>
           </li>
-          {{#if logged_in}}
           <li class="nav-item">
-            <a class="nav-link active" id="logout" aria-current="page" href="/signout">Sign Out</a>
+            <a class="nav-link active" aria-current="page" href="signout.html">Sign Out</a>
           </li>
-          {{/if}}
         </ul>
       </div>
     </div>
@@ -50,8 +46,10 @@
 </header>
 
 <!-- Begin page content -->
-  {{{body}}}
-    <script src="./js/logout.js"></script>
+
+
     <script src="../js/bootstrap.bundle.min.js"></script>
+
+
   </body>
 </html>

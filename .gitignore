@@ -2,3 +2,5 @@ node_modules
 .vscode
 ref
 .env
+.public-old
+.views-old
