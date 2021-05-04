@@ -33,7 +33,7 @@ router.get("/:id", async (req, res) => {
         res.status(200).render("blogpost", {
             postData,
             logged_in: req.session.logged_in, 
-            userId: req.session.user_id
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(400).json("Page not found!");

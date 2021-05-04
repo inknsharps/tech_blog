@@ -9,9 +9,10 @@ const createComment = async (event) => {
     const userId = document.querySelector(".user-profile").getAttribute("data-currentuser");
     console.log(userId);
     const postId = event.target.getAttribute("data-postid");
-    const commentContent = document.querySelector(".new-comment").textContent;
+    console.log(postId);
+    const commentContent = document.querySelector(".input-comment").value;
 
-    const response = await fetch("/api/comments/", {
+    const response = await fetch(`/api/comments/${userId}/${postId}`, {
         method: "POST",
         body: JSON.stringify({ userId, postId, commentContent }),
         headers: { "Content-Type": "application/json" }
