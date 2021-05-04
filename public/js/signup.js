@@ -1,4 +1,4 @@
-const createAccount = async(event) => {
+const createAccount = async (event) => {
     event.preventDefault();
 
     const username = document.querySelector(".input-username").value.trim();

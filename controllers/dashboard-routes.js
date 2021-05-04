@@ -13,7 +13,11 @@ router.get("/:id", checkAuthorization, async (req, res) => {
         });
         const usersPosts = userSpecificPosts.get({ plain:true });
         console.log(usersPosts)
-        res.status(200).json(usersPosts);
+        res.status(200).render("dashboard", {
+            usersPosts,
+            logged_in: req.session.logged_in,
+            userId: req.session.user_id
+        })
     } catch (err) {
         res.status(400).json("Page not found!");
     }

@@ -1,5 +1,13 @@
-<div>
-    <h1>This is the Dashboard.</h1>
+<!-- Bootstrap core CSS -->
+<link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="../css/sticky-footer-navbar.css" type="text/css" rel="stylesheet">
+
+<div style="padding-top: 10vh">
+    <h1>This is the Dashboard for {{usersPosts.username}}.</h1>
     {{> post-admin}}
     {{> postbtn }}
 </div>
+
+<script src="../js/post-admin.js"></script>

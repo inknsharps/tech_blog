@@ -6,14 +6,11 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.82.0">
-    <title>Dev Tech Blog</title>
-
-
-    <!-- Bootstrap core CSS -->
-<link href="./css/bootstrap.min.css" rel="stylesheet">
-
+        <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <link href="./css/sticky-footer-navbar.css" type="text/css" rel="stylesheet">
+    <title>Dev Tech Blog</title>
   </head>
   <body class="d-flex flex-column h-100">
 
@@ -30,14 +27,16 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-          {{#unless logged_in}}
+          {{#if logged_in}}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+            <a class="nav-link active" aria-current="page" href="/dashboard/{{userId}}">Dashboard</a>
           </li>
-          {{/unless}}
+          {{/if}}
+          {{#unless logged_in}}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/signin">Sign in</a>
           </li>
+          {{/unless}}
           {{#if logged_in}}
           <li class="nav-item">
             <a class="nav-link active" id="logout" aria-current="page" href="/signout">Sign Out</a>
@@ -51,7 +50,9 @@
 
 <!-- Begin page content -->
   {{{body}}}
+    {{#if logged_in}}
     <script src="./js/logout.js"></script>
+    {{/if}}
     <script src="../js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
