@@ -1,4 +1,5 @@
 // Contains all the related create, update and destroy functionality of the dashboard page.
+// Since this is only on the dashboard page I'm preeeetty sure it's fine to not validate the user...
 
 // This create function won't work without all the necessary targets and querySelectors in the DOM.
 // Since we need the userid in the POST method for creating a new blog post, we grab it from a property fed in through the handlebars template.
@@ -22,7 +23,7 @@ const createPost = async (event) => {
 
 // The big takeaways here:
 // 1) When you click on the buttons, it grabs the data-postid attribute (which we set up on our handlebars templates), and gives us the (blog)Post model id. 
-// 2) We then grab the new text content of the blog, by selecting a class that we made using handlebars (which uses the (blog)Post model id).
+// 2) We then grab the new text content of the blog, by selecting a class that we made using handlebars (which uses the (blog)Post model id.
 // 3) We then use the fetch API to send over the new text content in the request body, making a PUT request to our API endpoint to update a post.
 const updatePost = async (event) => {
     event.stopPropagation();

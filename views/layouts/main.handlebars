@@ -29,7 +29,7 @@
           </li>
           {{#if logged_in}}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/dashboard/{{userId}}">Dashboard</a>
+            <a class="nav-link active user-profile" data-currentuser="{{userId}}" aria-current="page" href="/dashboard/{{userId}}">Dashboard</a>
           </li>
           {{/if}}
           {{#unless logged_in}}
@@ -52,6 +52,7 @@
   {{{body}}}
     {{#if logged_in}}
     <script src="./js/logout.js"></script>
+    <script src="./js/comment-admin.js"></script>
     {{/if}}
     <script src="../js/bootstrap.bundle.min.js"></script>
   </body>
