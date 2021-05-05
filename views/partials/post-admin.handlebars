@@ -4,8 +4,7 @@
   <div class="card" style="width: 50rem;">
   <div class="card-body" data-postid={{id}}>
     <h5 class="card-title blog-title-{{id}}" contenteditable="true">{{blogContent}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Created by You on {{createdAt}}</h6>
-    <p class="card-text">This a blog post was created by you.</p>
+    <h6 class="card-subtitle mb-2 text-muted">Created on {{formatTime createdAt}}</h6>
     <button type="button" class="btn-primary update-post" data-postid="{{id}}">Update</button>
     <button type="button" class="btn-primary delete-post" data-postid="{{id}}">Delete</button>
   </div>

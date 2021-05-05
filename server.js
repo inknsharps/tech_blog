@@ -3,6 +3,8 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const helpers = require("handlebars-helpers")();
+// We attach the custom helpers to the handlebars-helpers object because express handlebars doesn't like to take multiple helper objects
+helpers.formatTime = require("./utils/custom-helpers");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sequelize = require("./config/connection.js");
 
