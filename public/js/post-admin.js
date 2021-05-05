@@ -7,7 +7,7 @@ const createPost = async (event) => {
     event.stopPropagation();
 
     const userId = event.target.getAttribute("data-userid");
-    const blogContent = document.querySelector(".new-blog-title").textContent;
+    const blogContent = document.querySelector(".new-blog-title").value;
 
     const response = await fetch("/api/posts/", {
         method: "POST",

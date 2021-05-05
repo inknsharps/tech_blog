@@ -1,4 +1,5 @@
-<body class="text-center">
-        <h5 class="card-title new-blog-title" contenteditable="true">New Post Text Here.</h5>
-        <button class="btn btn-lg btn-primary new-post" data-userid="{{usersPosts.id}}">New Post +</button>
+<div class="form-floating">
+        <textarea class="form-control new-blog-title" placeholder="new post text" id="floatingTextarea" style="height:10vh"></textarea>
+        <label for="floatingTextarea">New post text...</label>
 </div>
+<button class="btn btn-lg btn-primary new-post" data-userid="{{usersPosts.id}}">New Post +</button>
