@@ -12,9 +12,9 @@
     2)  Then, we grab the userId from the comment, and the user_id property in the parent (we need to use the ../ to reference the parent).
     3)  Then as per the comparison, generate the respective block.
     --}}
-    {{#eq userId ../userId}}
+    {{#if (isEqual userId ../userId)}}
       {{> comment-done }}
       {{else}}
-    {{/eq}}
+    {{/if}}
  </div>
 {{/each}}
