@@ -1,9 +1,4 @@
-<div id="comment">
-    {{#if logged_in}}
-    <button href="#" class="card-link">Add Comment</button>
-    {{/if}}
-    {{#unless logged_in}}
+<div id="comment-buttons">
     <button type="button" class="btn-secondary update-comment" data-userid="{{userId}}" data-commentid="{{id}}">Update</button>
     <button type="button" class="btn-secondary delete-comment" data-userid="{{userId}}" data-commentid="{{id}}">Delete</button>
-    {{/unless}}
  </div>
