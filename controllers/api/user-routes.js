@@ -1,4 +1,5 @@
 const { User } = require("../../models");
+const { create } = require("../../models/Post");
 const router = require("express").Router();
 const checkAuthorization = require("../../utils/authorization");
 
@@ -21,9 +22,16 @@ router.post("/", async (req, res) => {
             email: req.body.email,
             password: req.body.password
         });
-        req.session.save(() => {
+        req.session.save(async () => {
+            const createdUserData = await User.findOne({ 
+                where: { email: req.body.email } 
+            });
+            req.session.user_id = createdUserData.id;
             req.session.logged_in = true;
-            res.status(200).redirect("/");
+            res.status(200).render("homepage", {
+                logged_in: req.session.logged_in,
+                userId: req.session.user_id
+            });
         });
     } catch (err) {
         res.status(500).json(err);
