@@ -16,6 +16,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "production": {
+    "use_env_variable": "DATABASE_URL"
+  },
   "bugs": {
     "url": "https://github.com/inknsharps/tech_blog/issues"
   },
